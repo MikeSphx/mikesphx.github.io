@@ -8,12 +8,13 @@ $(document).ready(function(){
 function registerEventHandlers() {
     $('#health-log-button').click(healhLogButtonClick);
     $('#manage-docs-button').click(manageDocsButtonClick);
+    $('#complete-task-button').click(completeTaskButtonClick);
+    $('.nav-home').click(navHomeClick);
 }
 
 function healhLogButtonClick() {
     console.log('Clicked health log button');
     window.location = './pages/health-log.html';
-    
 }
 
 function manageDocsButtonClick() {
@@ -21,25 +22,37 @@ function manageDocsButtonClick() {
     window.location = './pages/manage-docs.html';
 }
 
+function completeTaskButtonClick() {
+    // Remove the selected reminders
+    $('.list-group-item-custom').remove();
+    // Update the reminders count
+    updateRemindersCount();
+}
+
+function updateRemindersCount() {
+    var numReminders = $('.list-group-item').length;
+    $('#reminder-num').text(numReminders);
+}
+
+function navHomeClick() {
+    window.location = './index.html';
+}
+
 // Setting up checklist
 
 function setupChecklist() {
-    loadChecklist();
-    stylizeChecklist();
-}
-
-function loadChecklist() {
     $.getJSON( "ajax/../data/reminders.json", function( data ) {
         var items = [];
         $.each( data, function( key, val ) {
-            //items.push( "<li id='" + key + "'>" + val + "</li>" );
-            console.log(val);
+          //<li class="list-group-item no-select" data-color="custom">Cras justo odio</li>
+            items.push('<li class="list-group-item no-select" data-color="custom">'+val.text+
+                       '<span class="list-group-time">'+val.time+'</span></li>');
         });
-
-//        $( "<ul/>", {
-//            "class": "my-new-list",
-//            html: items.join( "" )
-//        }).appendTo( "body" );
+      
+        var itemsHTML = items.join("");
+        $('ul.checked-list-box').append(itemsHTML);
+        stylizeChecklist();
+        updateRemindersCount();
     });
 }
 

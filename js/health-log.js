@@ -6,8 +6,13 @@ function registerEventHandlers() {
     $("#masterfab").click(fabClick);
     $("#addMed").click(addMedClick);
     $("#logSymp").click(logSympClick);
-    $("#save2").click(appendSympClick)
-    $("#save1").click(appendMedClick)
+    $("#save2").click(appendSympClick);
+    $("#save1").click(appendMedClick);
+    $('.nav-home').click(navHomeClick);
+}
+
+function navHomeClick() {
+    window.location = '../index.html';
 }
 
 function fabClick() {
@@ -42,6 +47,7 @@ function addMedClick() {
     $('#medModal').on('show.bs.modal', function (event) {
         var modal = $(this)
         })
+    fabClick();
 }
 
 function logSympClick() {
@@ -50,6 +56,7 @@ function logSympClick() {
     $('#sympModal').on('show.bs.modal', function (event) {
         var modal = $(this)
         })
+    fabClick();
 }
 
 function appendSympClick() {

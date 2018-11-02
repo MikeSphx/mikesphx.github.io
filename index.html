@@ -15,7 +15,7 @@
 
   <body id="homepage">
     <nav id="navbar" class="navbar navbar-expand-md navbar-dark fixed-top">
-      <a class="navbar-brand" href="#">Pet Tracker</a>
+      <a class="navbar-brand nav-home" href="#">Pet Tracker</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -23,7 +23,7 @@
       <div class="collapse navbar-collapse" id="navbarsExampleDefault">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item active">
-            <a class="nav-link" href="#">Home</a>
+            <a class="nav-link nav-home" href="#">Home</a>
           </li>
         </ul>
       </div>
@@ -31,21 +31,29 @@
 
     <div class="jumbotron jumbotron-fluid">
       <div class="container">
-        <h1 class="display-3">5 Important Reminders</h1>
+        <h1 class="display-3 no-select"><span id="reminder-num">5</span> Important Reminders</h1>
+        <h5 class="no-select">Task<span class="time-left no-select">Time Left</span></h5>
       </div>
+      
       <div id="reminders-container" class="container">
-        <ul class="list-group checked-list-box">
-          <li class="list-group-item no-select" data-color="custom">Cras justo odio</li>
-          <li class="list-group-item no-select" data-color="custom">Dapibus ac facilisis in</li>
-          <li class="list-group-item no-select" data-color="custom">Morbi leo risus</li>
-          <li class="list-group-item no-select" data-color="custom">Porta ac consectetur ac</li>
-          <li class="list-group-item no-select" data-color="custom">Vestibulum at eros</li>
-        </ul>
+        <ul class="list-group checked-list-box"></ul>
+      </div>
+      <div class="container show-more-container text-muted no-select">SHOW MORE</div>
+      <div class="container ct-action-container">
+        <button id="complete-task-button" type="button" class="btn"><i class="fa fa-check"></i> COMPLETE TASK</button>
       </div>
     </div>
-      
-    <button id="health-log-button" class="btn btn-primary" type="submit">Health Log</button>
-    <button id="manage-docs-button" class="btn btn-primary" type="submit">Manage Documents</button>
+    
+    <div class="container action-container">
+      <div class="row justify-content-center">
+        <div class="col-6">
+          <button id="health-log-button" class="btn" type="submit"><i class="fa fa-medkit"></i> Manage Symptoms/Reminders</button>
+        </div>
+        <div class="col-6">
+          <button id="manage-docs-button" class="btn" type="submit"><i class="fa fa-file-text-o"></i> Manage Documents</button>
+        </div>
+      </div>
+    </div>
 
     <script
       src="https://code.jquery.com/jquery-3.3.1.min.js"

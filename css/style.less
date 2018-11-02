@@ -6,6 +6,8 @@ h1 {
 @link-color:        #21CAAE;//#428bca; // sea blue
 @secondary-color:   #24DAF0;//#448AFF;
 
+@text-muted:        #868e96;
+
 #navbar {
     background-color: @link-color;
 }
@@ -26,13 +28,26 @@ h1 {
 
 #homepage {
     padding-top: 3.5rem;
+  
+    .jumbotron {
+      padding-bottom: 1rem;
+    }
 
     #reminders-container {
         margin-top: 1.75rem;
     }
   
     #reminders-container {
-        margin-top: 1.75rem;
+        margin-top: 0.75rem;
+    }
+  
+    .container h5 {
+      padding: 0rem 1rem;
+      color: @text-muted;
+    }
+  
+    .time-left {
+        float: right;
     }
     
     .state-icon {
@@ -42,15 +57,74 @@ h1 {
     input.hidden {
         display: none;
     }
+  
+    .list-group-time {
+        float: right;
+        color: @text-muted;
+    }
     
     .list-group-item-primary {
         color: rgb(255, 255, 255);
         background-color: @secondary-color;//rgb(66, 139, 202);
     }
+  
+    .action-container {
+      margin-top: 3.5rem;
+      
+      
+      button {
+        padding: 5rem 0rem;
+        background-color: @secondary-color;
+        color: rgb(255, 255, 255);
+      }
+      
+      button:hover {
+        background-color: #1ec8db;
+      }
+      
+      i {
+        margin-right: 0.75rem;
+      }
+      
+      #health-log-button {
+        width: 100%;
+      }
+
+      #manage-docs-button {
+        width: 100%;
+      }
+    }
+  
+    .ct-action-container {
+        display: flex;
+        justify-content: center;
+        padding: 0.75rem 0rem;
+      
+        .btn {
+          background-color: @link-color;
+          color: rgb(255, 255, 255);
+          padding: 1rem 18rem;
+        }
+      
+        .btn:hover {
+          background-color: #1dbaa0;
+        }
+    }
+  
+    .show-more-container {
+        display: flex;
+        align-content: center;
+        justify-content: center;
+        padding: 0.5rem 0rem;
+    }
     
     .list-group-item-custom {
       color: rgb(255, 255, 255);
       background-color: @secondary-color;
+        
+      .list-group-time {
+        color: rgb(255, 255, 255);
+      }
     }
 }
 
@@ -69,6 +143,7 @@ h1 {
         text-align: center;
         font-size: 24pt;
         padding-top: 3.5rem;
+        margin-top: 1rem;
     }
 
     table {
@@ -103,6 +178,12 @@ h1 {
     .title {
         align-content: center;
     }
+  
+    
+  
+    .table-container {
+        margin-top: 1rem;
+    } 
 }
 
 #healthlog {
@@ -127,9 +208,16 @@ h1 {
         display: inline-block;
         cursor: default;
     }
+  
+    .fab span#plus-fab {
+        position: absolute;
+        top: -3px;
+        left: 20px;
+    }
 
     .fab span{
         vertical-align:middle;
+
     }
 
     .fab.child{
@@ -143,7 +231,7 @@ h1 {
 
     .black() when (lightness(@fab-color) > 50%){
         .fab{
-            color: #000;
+            color: #FFF;
         }
     }
 
@@ -173,8 +261,8 @@ h1 {
         left: 27%;
         height: 100px;
         width: 500px;
-        background-color: yellow;
-        border-radius: 50%;
+        background-color: #97fceb;
+        border-radius: 5%;
         margin-bottom: 20px
     }
 
@@ -212,5 +300,7 @@ h1 {
         text-align: center;
         font-size: 24pt;
         padding-top: 3.5rem;
+        margin-top: 1rem;
+        margin-bottom: 1.5rem;
     }
 }
