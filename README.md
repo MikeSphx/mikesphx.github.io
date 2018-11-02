@@ -1,33 +1,20 @@
-# \<my-app\>
+# PetTracker
+Class project repo for HCI IS4300
 
+**Group members:** Daniel Broun, Emily Simoneau, Jonathan Paetzold, Michael Kim
 
+## Development Setup
 
-## Install the Polymer-CLI
-
-First, make sure you have the [Polymer CLI](https://www.npmjs.com/package/polymer-cli) installed. Then run `polymer serve` to serve your application locally.
-
-## Viewing Your Application
-
-```
-$ polymer serve
-```
-
-## Building Your Application
+First, clone the repo into your local machine.
 
 ```
-$ polymer build
+git clone https://github.com/MikeSphx/PetTracker.git
 ```
 
-This will create builds of your application in the `build/` directory, optimized to be served in production. You can then serve the built versions by giving `polymer serve` a folder to serve from:
+Next, download [Brackets](http://brackets.io/) (Windows/OSX compatible) for coding and viewing the webpage as you work on it.
 
-```
-$ polymer serve build/default
-```
+Open Brackets, File -> Open Folder... -> Choose PetTracker folder
 
-## Running Tests
+Click on the Lightning icon on the top right corner to see a live preview of the app
 
-```
-$ polymer test
-```
-
-Your application is already set up to be tested via [web-component-tester](https://github.com/Polymer/web-component-tester). Run `polymer test` to run your application's test suite locally.
+Done!

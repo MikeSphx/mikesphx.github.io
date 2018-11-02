@@ -1,0 +1,216 @@
+h1 {
+
+}
+
+// Variables
+@link-color:        #21CAAE;//#428bca; // sea blue
+@secondary-color:   #24DAF0;//#448AFF;
+
+#navbar {
+    background-color: @link-color;
+}
+
+.no-select {
+  -webkit-user-select: none; /* Safari */        
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* IE10+/Edge */
+  user-select: none; /* Standard */
+}
+
+.no-select {
+  -webkit-user-select: none; /* Safari */        
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* IE10+/Edge */
+  user-select: none; /* Standard */
+}
+
+#homepage {
+    padding-top: 3.5rem;
+
+    #reminders-container {
+        margin-top: 1.75rem;
+    }
+  
+    #reminders-container {
+        margin-top: 1.75rem;
+    }
+    
+    .state-icon {
+        margin-right: 1rem;
+    }
+    
+    input.hidden {
+        display: none;
+    }
+    
+    .list-group-item-primary {
+        color: rgb(255, 255, 255);
+        background-color: @secondary-color;//rgb(66, 139, 202);
+    }
+    
+    .list-group-item-custom {
+      color: rgb(255, 255, 255);
+      background-color: @secondary-color;
+    }
+}
+
+#managedocs {
+    .btn {
+        background-color: @secondary-color;//@link-color; /* Blue background */
+        border: none; /* Remove borders */
+        color: white; /* White text */
+        font-size: 16px; /* Set a font size */
+        cursor: pointer; /* Mouse pointer on hover */
+    }
+    .btn:hover {
+        background-color: darkcyan;
+    }
+    #page-title {
+        text-align: center;
+        font-size: 24pt;
+        padding-top: 3.5rem;
+    }
+
+    table {
+        padding: 0px !important;
+        margin: 0px !important;
+        text-align: center;
+    }
+
+    #bottom-buttons {
+        display: flex;
+        justify-content: flex-end;
+        padding: 5px;
+
+        #bottom-button {
+            padding: 2px;
+        }
+    }
+
+    .close {
+        display: inline;
+        padding: auto !important;
+        margin: 0 !important;
+
+    }
+
+    .modal-title {
+        margin: auto auto;
+
+        padding-left: 25px;
+    }
+
+    .title {
+        align-content: center;
+    }
+}
+
+#healthlog {
+    @fab-color: @secondary-color;//#03A9F4;
+    @fab-size: 64px;
+    @fab-margin: 1 / 4 * 3 * @fab-size;
+    @fab-child-size: 1 / 3 * 2 * @fab-size;
+    @fab-child-margin: (@fab-size - @fab-child-size) / 2 + @fab-margin;
+
+    .fab{
+        background: @fab-color;
+        width: @fab-size;
+        height: @fab-size;
+        border-radius: 50%;
+        text-align:center;
+        color: #FFF;
+        box-shadow:0px 0px 3px rgba(0,0,0,0.5),3px 3px 3px rgba(0,0,0,0.25);
+        position: fixed;
+        bottom: @fab-margin;
+        right: @fab-margin;
+        font-size: 2.6667em;
+        display: inline-block;
+        cursor: default;
+    }
+
+    .fab span{
+        vertical-align:middle;
+    }
+
+    .fab.child{
+        right: @fab-child-margin;
+        width: @fab-child-size;
+        height: @fab-child-size;
+        display: none;
+        opacity: 0;
+        font-size: .5em;
+    }
+
+    .black() when (lightness(@fab-color) > 50%){
+        .fab{
+            color: #000;
+        }
+    }
+
+    .black();
+
+    .backdrop{
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: #ECECEC;
+        opacity: 0.9;
+        display: none;
+    }
+
+    body{
+        background: #363F45;
+        font-family: 'Roboto', sans-serif;
+        text-align: center;
+        color: #FFF;
+    }
+    
+    .oval {
+        position: relative;
+        top: 50%;
+        left: 27%;
+        height: 100px;
+        width: 500px;
+        background-color: yellow;
+        border-radius: 50%;
+        margin-bottom: 20px
+    }
+
+    .text-block {
+        position: relative;
+        text-align: left;
+        bottom: 65px;
+        left: 80px;
+        color: black;
+        overflow-wrap: break-word;
+    
+    }
+    
+    .text-date {
+        position: relative;
+        bottom: -40px;
+        right: -50px;
+        color: black;
+    
+    }
+    
+    .close {
+        display: inline;
+        padding: auto !important;
+        margin: 0 !important;
+
+    }
+
+    .modal-title {
+        margin: auto auto;
+        padding-left: 25px;
+    }
+
+    #title {
+        text-align: center;
+        font-size: 24pt;
+        padding-top: 3.5rem;
+    }
+}
