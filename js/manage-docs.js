@@ -7,6 +7,7 @@ function registerEventHandlers() {
     $('#export-button').click(exportButtonClick);
     $('#view-button').click(viewButtonClick);
     $('.nav-home').click(navHomeClick);
+    $('#save').click(saveNew);
 }
 
 function navHomeClick() {
@@ -35,3 +36,11 @@ function exportButtonClick() {
         })
 }
 
+
+function saveNew() {
+    console.log('append');
+    // Display modal for adding a symptom
+    var date = $("#newModal #date").val().trim()
+    var name = $("#newModal #name").val().trim()
+    $('#table tbody').append('<tr> <th scope="row"> <button class="btn" id="view-button" data-toggle="modal" data-target="#viewModal">View<i class="fa fa-home"></i></button></th><td>'+date+'</td><td>'+name+'</td><th scope="row"><button id="export-button" class="btn btn-primary" data-toggle="modal" data-target="#exportModal">Export</button></th></tr>');
+}

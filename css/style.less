@@ -40,10 +40,37 @@ h1 {
     #reminders-container {
         margin-top: 0.75rem;
     }
+    
+    #save-reminder {
+        background-color: @link-color;
+        border-color: @link-color;
+    }
+    
+    #save-reminder:hover {
+        background-color: #1dbaa0;
+    }
+  
+    .add-reminder {
+//        float: right;  
+        font-size: 30px;
+        padding-top: 0px;
+        padding-bottom: 0px;
+        color: @link-color;
+    }
+  
+    .add-reminder:hover {
+        color: #1dbaa0;
+    }
   
     .container h5 {
       padding: 0rem 1rem;
       color: @text-muted;
+    }
+    
+    .form-tip {
+        color: @text-muted;
+        font-size: 9pt;
+        display: none;
     }
   
     .time-left {
@@ -178,8 +205,6 @@ h1 {
     .title {
         align-content: center;
     }
-  
-    
   
     .table-container {
         margin-top: 1rem;

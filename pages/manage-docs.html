@@ -30,13 +30,14 @@
 
         <div id="page-title">Manage Documents</div>
       
-        <div class="container table-container">
+        <div class="container table-container" id="table">
             <table class="table table-sm table-bordered">
                 <thead>
                     <tr>
                         <th scope="col"></th>
                         <th scope="col">Date</th>
                         <th scope="col">Type</th>
+                        <th scope="col"></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -45,7 +46,10 @@
                             <button class="btn" id="view-button" data-toggle="modal" data-target="#viewModal">View<i class="fa fa-home"></i></button>
                         </th>
                         <td>11/12/18</td>
-                        <td>Doctors Appointment</td>
+                        <td>Hospital Visit</td>
+                        <th scope="row">
+                        <button id="export-button" class="btn btn-primary" data-toggle="modal" data-target="#exportModal">Export</button>
+                        </th>
                     </tr>
                     <tr>
                         <th scope="row">
@@ -53,6 +57,19 @@
                         </th>
                         <td>11/12/18</td>
                         <td>Doctors Appointment</td>
+                        <th scope="row">
+                        <button id="export-button" class="btn btn-primary" data-toggle="modal" data-target="#exportModal">Export</button>
+                        </th>
+                    </tr>
+                    <tr>
+                        <th scope="row">
+                            <button class="btn" id="view-button" data-toggle="modal" data-target="#viewModal">View<i class="fa fa-home"></i></button>
+                        </th>
+                        <td>11/12/18</td>
+                        <td>Blood Test</td>
+                        <th scope="row">
+                        <button id="export-button" class="btn btn-primary" data-toggle="modal" data-target="#exportModal">Export</button>
+                        </th>
                     </tr>
                     <tr>
                         <th scope="row">
@@ -60,6 +77,19 @@
                         </th>
                         <td>11/12/18</td>
                         <td>Doctors Appointment</td>
+                        <th scope="row">
+                        <button id="export-button" class="btn btn-primary" data-toggle="modal" data-target="#exportModal">Export</button>
+                        </th>
+                    </tr>
+                    <tr>
+                        <th scope="row">
+                            <button class="btn" id="view-button" data-toggle="modal" data-target="#viewModal">View<i class="fa fa-home"></i></button>
+                        </th>
+                        <td>11/12/18</td>
+                        <td>Transfusion</td>
+                        <th scope="row">
+                        <button id="export-button" class="btn btn-primary" data-toggle="modal" data-target="#exportModal">Export</button>
+                        </th>
                     </tr>
                     <tr>
                         <th scope="row">
@@ -67,6 +97,19 @@
                         </th>
                         <td>11/12/18</td>
                         <td>Doctors Appointment</td>
+                        <th scope="row">
+                        <button id="export-button" class="btn btn-primary" data-toggle="modal" data-target="#exportModal">Export</button>
+                        </th>
+                    </tr>
+                    <tr>
+                        <th scope="row">
+                            <button class="btn" id="view-button" data-toggle="modal" data-target="#viewModal">View<i class="fa fa-home"></i></button>
+                        </th>
+                        <td>11/12/18</td>
+                        <td>Diabetes Blood Draw</td>
+                        <th scope="row">
+                        <button id="export-button" class="btn btn-primary" data-toggle="modal" data-target="#exportModal">Export</button>
+                        </th>
                     </tr>
                     <tr>
                         <th scope="row">
@@ -74,27 +117,9 @@
                         </th>
                         <td>11/12/18</td>
                         <td>Doctors Appointment</td>
-                    </tr>
-                    <tr>
                         <th scope="row">
-                            <button class="btn" id="view-button" data-toggle="modal" data-target="#viewModal">View<i class="fa fa-home"></i></button>
+                        <button id="export-button" class="btn btn-primary" data-toggle="modal" data-target="#exportModal">Export</button>
                         </th>
-                        <td>11/12/18</td>
-                        <td>Doctors Appointment</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">
-                            <button class="btn" id="view-button" data-toggle="modal" data-target="#viewModal">View<i class="fa fa-home"></i></button>
-                        </th>
-                        <td>11/12/18</td>
-                        <td>Doctors Appointment</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">
-                            <button class="btn" id="view-button" data-toggle="modal" data-target="#viewModal">View<i class="fa fa-home"></i></button>
-                        </th>
-                        <td>11/12/18</td>
-                        <td>Doctors Appointment</td>
                     </tr>
                 </tbody>
             </table>
@@ -105,7 +130,7 @@
                     <button id="add-new-button" class="btn btn-primary" data-toggle="modal" data-target="#newModal">+</button>
                 </div>
                 <div id="bottom-button">
-                    <button id="export-button" class="btn btn-primary" data-toggle="modal" data-target="#exportModal">Export</button>
+                    <button id="export-button" class="btn btn-primary" data-toggle="modal" data-target="#exportModal">Export All</button>
                 </div>
             </div>
         </div>
@@ -120,7 +145,7 @@
                     <div class="modal-body">
                         <form>
                             <div class="form-group">
-                                <label for="recipient-name" class="control-label">Recipient:</label>
+                                <label for="recipient-name" class="control-label">Recipient's Email:</label>
                                 <input type="text" class="form-control" id="recipient-name">
                             </div>
                         </form>
@@ -157,18 +182,18 @@
                         <form>
                             <div class="form-group">
                                 <label for="recipient-name" class="col-form-label">Name:</label>
-                                <input type="text" class="form-control" id="recipient-name">
+                                <input type="text" class="form-control" id="name">
                             </div>
                             <div class="form-group">
                                 <label for="recipient-name" class="col-form-label">Date:</label>
-                                <input type="text" class="form-control" id="recipient-name">
+                                <input type="text" class="form-control" id="date">
                             </div>
                         </form>
                         <button type="button" class="btn btn-secondary">Scan Document</button>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Save</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal" id="save">Save</button>
                     </div>
                 </div>
             </div>

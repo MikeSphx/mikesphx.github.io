@@ -31,7 +31,11 @@
 
     <div class="jumbotron jumbotron-fluid">
       <div class="container">
-        <h1 class="display-3 no-select"><span id="reminder-num">5</span> Important Reminders</h1>
+        <h1 class="display-3 no-select"><span id="reminder-num">5</span> Reminders
+        </h1>
+        <div class="d-flex align-items-end justify-content-end">
+          <button type="button" class="add-reminder btn btn-link" data-toggle="modal" data-target="#add-reminder-modal"><i class="fa fa-plus-square-o" aria-hidden="true"></i></button>
+        </div>
         <h5 class="no-select">Task<span class="time-left no-select">Time Left</span></h5>
       </div>
       
@@ -54,10 +58,60 @@
         </div>
       </div>
     </div>
+      
+    <div class="modal fade" id="add-reminder-modal" tabindex="-1" role="dialog">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title no-select">Add Reminder</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form id="note-form">
+            <div class="form-group row">
+              <label for="example-text-input" class="col-3 col-form-label no-select">Note<span style="color:red"> *</span></label>
+              <div class="col-9">
+                <input class="form-control" type="text" value="" id="note-input" placeholder="ex. Feed cat">
+              </div>
+            </div>
+            </form>
+            <div class="no-select" style="margin-bottom: 15px;"><b>Time Left</b></div>
+            <form id="time-form">
+            <div class="form-group row">
+              <label for="example-search-input" class="col-3 col-form-label no-select">Hour(s)<span style="color:red"> *</span></label>
+              <div class="col-9">
+                <input class="form-control" type="number" placeholder="h" id="hour-input" min="0">
+              </div>
+            </div>
+            <div class="form-tip">ex. 0, 5, 10</div>
+            <div class="form-group row">
+              <label for="example-search-input" class="col-3 col-form-label no-select">Minute(s)<span style="color:red"> *</span></label>
+              <div class="col-9">
+                <input class="form-control" type="number" placeholder="mm" id="minute-input" min="0" max="59">
+              </div>
+            </div>
+            <div class="form-tip">min: 0, max: 59</div>
+            </form>
+            <div class="no-select"><span style="color:red">*</span> <i>Required</i></div>
+          </div>
+          <div class="modal-footer">
+            <span id="invalid-warning" class="mr-auto no-select" style="display:none; color:red"></span>
+            <button id="save-reminder" type="button" class="btn btn-primary">Save</button>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <script
       src="https://code.jquery.com/jquery-3.3.1.min.js"
       integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+      crossorigin="anonymous"></script>
+    <script
+      src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"
+      integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU="
       crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
