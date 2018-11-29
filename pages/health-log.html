@@ -8,8 +8,11 @@
       
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
     
     <link rel="stylesheet/less" type="text/css" href="../css/style.less"/>
+    <script src="https://cdn.jsdelivr.net/npm/pikaday/pikaday.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/pikaday/css/pikaday.css">
     
   </head>
     
@@ -31,42 +34,43 @@
             </div>
         </nav>
 
-        <div id="title">Health Logs</div>
+        <div id="title">Health Log</div>
               
         <h>
         </h>
         
         <div class="oval">
             <div class="text-date">
-                <p>Oct 15</p>
+                <p>Mon, Oct 15, 2018</p>
+                
                 <div class="text-block">
-                    <p>Med taken: anticonvulsant</p>
-                    <p>Symptom: drooling</p>
+                    <p><b>Med taken:</b> Anticonvulsant</p>
+                    <p><b>Symptom:</b> Drooling</p>
                 </div>
             </div>
         </div>
         <div class="oval">
             <div class="text-date">
-                <p>Oct 14</p>
+                <p>Sun, Oct 14, 2018</p>
                 <div class="text-block">
-                    <p>Med taken: anticonvulsant</p>
+                    <p><b>Med taken:</b> Anticonvulsant</p>
                 </div>
             </div>
         </div>
         <div class="oval">
             <div class="text-date">
-                <p>Oct 13</p>
+                <p>Sat, Oct 13, 2018</p>
                 <div class="text-block">
-                    <p>Med taken: anticonvulsant</p>
+                    <p><b>Med taken:</b> Anticonvulsant</p>
                 </div>
             </div>
         </div>
         <div class="oval">
             <div class="text-date">
-                <p>Oct 12</p>
+                <p>Fri, Oct 12, 2018</p>
                 <div class="text-block">
-                    <p>Med taken: anticonvulsant</p>
-                    <p>Symptom: drooling</p>
+                    <p><b>Med taken:</b> Anticonvulsant</p>
+                    <p><b>Symptom:</b> Drooling</p>
                 </div>
             </div>
         </div>
@@ -75,18 +79,19 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span></button>
                     <h4 class="modal-title">Add Medicine</h4>
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span></button>
                 </div>
                 <div class="modal-body">
                     <form>
-                        <div class="form-group">
-                            <label for="name" class="col-form-label">Medicine Name:</label>
-                            <input type="text" class="form-control" id="name">
+                        <div class="name-row form-group row">
+                            <label class="col-4 col-form-label" for="name">Medicine Name:</label>
+                            <input type="text" class="col-8 form-control" id="name">
                         </div>
-                        <div class="form-group">
-                            <label for="date" class="col-form-label">Date:</label>
-                            <input type="text" class="form-control" id="date">
+                        <div class="name-row form-group row">
+                            <label for="date1" class="col-4 col-form-label">Date:</label>
+<!--                            <input class="col-8" type="text" id="date1">-->
+                            <input id="new-date1" class="col-8 form-control" type="date">
                         </div>
                     </form>
                 </div>
@@ -102,18 +107,19 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span></button>
                     <h4 class="modal-title">Add Symptom</h4>
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span></button>
                 </div>
                 <div class="modal-body">
                     <form>
-                        <div class="form-group">
-                            <label for="name" class="col-form-label">Name:</label>
-                            <input type="text" class="form-control" id="name">
+                        <div class="name-row form-group row">
+                            <label for="name" class="col-2 col-form-label">Name:</label>
+                            <input type="text" class="col-10 form-control" id="name">
                         </div>
-                        <div class="form-group">
-                            <label for="date" class="col-form-label">Date:</label>
-                            <input type="text" class="form-control" id="date">
+                        <div class="name-row form-group row">
+                            <label for="date2" class="col-2 col-form-label">Date:</label>
+<!--                            <input type="text" id="date2">-->
+                            <input id="new-date2" class="col-10 form-control" type="date">
                         </div>
                     </form>
                     
@@ -127,15 +133,33 @@
     </div>
       
     <div class="backdrop"></div>
-    <div class="fab child" data-subitem="1" id="addMed" data-toggle="modal" data-target="#medModal"><span>Add Medicine</span></div>
-    <div class="fab child" data-subitem="2" id="logSymp" data-toggle="modal" data-target="#sympModal"><span>Log Symptom</span></div>
-    <div class="fab" id="masterfab"><span>+</span></div>
+    <div class="fab child" data-subitem="1" id="addMed" data-toggle="modal" data-target="#medModal"><div id="add-medicine" class="fab-text">Add Medicine</div><i id="med-icon" class="fa fa-medkit fab-icon" aria-hidden="true"></i></div>
+    <div class="fab child" data-subitem="2" id="logSymp" data-toggle="modal" data-target="#sympModal"><div id="log-symptom" class="fab-text">Log Symptom</div><i id="steth-icon" class="fa fa-stethoscope fab-icon" aria-hidden="true"></i></div>
+    <div class="fab" id="masterfab"><span id="plus-text" class="no-select">+</span><i id="undo-icon" class="fa fa-undo" aria-hidden="true"></i></div>
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/less.js/3.8.1/less.min.js"></script>
     <script src="../js/health-log.js"></script>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="pikaday.js"></script>
+    <script src="moment.js"></script>
+    <script>
+        var picker = new Pikaday({
+            field: document.getElementById('date1'),
+            format: 'MMM DD',
+            onSelect: function() {
+                console.log(this.getMoment().format('Do MMM DD'));
+            }
+        });
+        var picker2 = new Pikaday({
+            field: document.getElementById('date2'),
+            format: 'MMM DD',
+            onSelect: function() {
+                console.log(this.getMoment().format('Do MMM DD'));
+            }
+        });
+    </script>
   </body>
     
 </html>

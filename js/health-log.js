@@ -9,10 +9,15 @@ function registerEventHandlers() {
     $("#save2").click(appendSympClick);
     $("#save1").click(appendMedClick);
     $('.nav-home').click(navHomeClick);
+    $(".backdrop").click(backdropClick);
 }
 
 function navHomeClick() {
     window.location = '../index.html';
+}
+
+function backdropClick() {
+    fabClick();
 }
 
 function fabClick() {
@@ -27,6 +32,8 @@ function fabClick() {
 				},125,function(){
 					$(this).hide();
 				});
+            $("#plus-text").show();
+            $("#undo-icon").hide();
 		}else{
 			jQuery(".backdrop").fadeIn(125);
 			$(".fab.child").each(function(){
@@ -38,6 +45,8 @@ function fabClick() {
 						opacity	: 1
 					},125);
 			});
+            $("#plus-text").hide();
+            $("#undo-icon").show();
 		}
 }
 
@@ -61,16 +70,23 @@ function logSympClick() {
 
 function appendSympClick() {
     console.log('append');
+    var options = { weekday: 'short', year: 'numeric', month: 'short', day: '2-digit', timeZone: 'UTC' };
     // Display modal for adding a symptom
-    var date = $("#sympModal #date").val().trim()
-    var name = $("#sympModal #name").val().trim()
-    $("h").prepend('<div class="oval"><div class="text-date"><p>'+date+'</p><div class="text-block"><p>Symptom:'+name+'</p></div></div></div>');
+    var date = $("#sympModal #new-date2").val().trim();
+    date = new Date(date);
+    date = date.toLocaleDateString("en-US", options);
+    var name = $("#sympModal #name").val().trim();
+    $("h").prepend('<div class="oval"><div class="text-date"><p>'+date+'</p><div class="text-block"><p><b>Symptom:</b> '+name+'</p></div></div></div>');
 }
 
 function appendMedClick() {
     console.log('append');
     // Display modal for adding a symptom
-    var date = $("#medModal #date").val().trim()
-    var name = $("#medModal #name").val().trim()
-    $("h").prepend('<div class="oval"><div class="text-date"><p>'+date+'</p><div class="text-block"><p>Symptom:'+name+'</p></div></div></div>');
+    var options = { weekday: 'short', year: 'numeric', month: 'short', day: '2-digit', timeZone: 'UTC' };
+    var date = $("#medModal #new-date1").val().trim();
+    date = new Date(date);
+    date = date.toLocaleDateString("en-US", options);
+    var name = $("#sympModal #name").val().trim();
+    var name = $("#medModal #name").val().trim();
+    $("h").prepend('<div class="oval"><div class="text-date"><p>'+date+'</p><div class="text-block"><p><b>Med taken:</b> '+name+'</p></div></div></div>');
 }
