@@ -39,39 +39,53 @@
         <h>
         </h>
         
-        <div class="oval">
+        <div class="oval" id="1">
             <div class="text-date">
-                <p>Mon, Oct 15, 2018</p>
                 
+                <p id="date1"><i class="fa fa-stethoscope fab-icon" aria-hidden="true"></i>Mon, Oct 15, 2018</p>
                 <div class="text-block">
-                    <p><b>Med taken:</b> Anticonvulsant</p>
-                    <p><b>Symptom:</b> Drooling</p>
+                    <p id="p1"><b>Symptom:</b> Drooling</p>
                 </div>
             </div>
-        </div>
-        <div class="oval">
-            <div class="text-date">
-                <p>Sun, Oct 14, 2018</p>
-                <div class="text-block">
-                    <p><b>Med taken:</b> Anticonvulsant</p>
-                </div>
+            <div class="edit-block">
+                    <button type="button" class="btn btn-secondary" id= "edit3" data-toggle="modal" data-target="#editsympModal" data-myvalue="1">Edit</button>
+                    <button type="button" class="btn btn-secondary" id= "remove" onclick="removeClick('1')">Remove</button>
             </div>
         </div>
-        <div class="oval">
+        <div class="oval" id="2">
             <div class="text-date">
-                <p>Sat, Oct 13, 2018</p>
+                <p id="date2"><i class="fa fa-medkit fab-icon" aria-hidden="true"></i>Sun, Oct 14, 2018</p>
                 <div class="text-block">
-                    <p><b>Med taken:</b> Anticonvulsant</p>
+                    <p id="p2"><b>Med taken:</b> Enrofloxacin (Baytril)</p>
                 </div>
             </div>
+            <div class="edit-block">
+                    <button type="button" class="btn btn-secondary" id= "edit3" data-toggle="modal" data-target="#editmedModal" data-myvalue="2">Edit</button>
+                    <button type="button" class="btn btn-secondary" id= "remove" onclick="removeClick('2')">Remove</button>
+            </div>
         </div>
-        <div class="oval">
+        <div class="oval" id="3">
             <div class="text-date">
-                <p>Fri, Oct 12, 2018</p>
+                <p id=date3><i class="fa fa-medkit fab-icon" aria-hidden="true"></i>Sat, Oct 13, 2018</p>
                 <div class="text-block">
-                    <p><b>Med taken:</b> Anticonvulsant</p>
-                    <p><b>Symptom:</b> Drooling</p>
+                    <p id="p3"><b>Med taken:</b> Metronidazole (Flagyl)</p>
                 </div>
+            </div>
+            <div class="edit-block">
+                    <button type="button" class="btn btn-secondary" id= "edit3" data-toggle="modal" data-target="#editmedModal" data-myvalue="3">Edit</button>
+                    <button type="button" class="btn btn-secondary" id= "remove" onclick="removeClick('3')">Remove</button>
+            </div>
+        </div>
+        <div class="oval" id="4">
+            <div class="text-date">
+                <p id="date4"><i class="fa fa-medkit fab-icon" aria-hidden="true"></i>Fri, Oct 12, 2018</p>
+                <div class="text-block">
+                    <p id="p4"><b>Med taken:</b> Acyclovir (Zovirax)</p>
+                </div>
+            </div>
+            <div class="edit-block">
+                    <button type="button" class="btn btn-secondary" id= "edit3" data-toggle="modal" data-target="#editmedModal" data-myvalue="4">Edit</button>
+                    <button type="button" class="btn btn-secondary" id= "remove" onclick="removeClick('4')">Remove</button>
             </div>
         </div>
       
@@ -79,25 +93,57 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h4 class="modal-title">Add Medicine</h4>
                     <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">Log Medicine</h4>
                 </div>
                 <div class="modal-body">
                     <form>
                         <div class="name-row form-group row">
-                            <label class="col-4 col-form-label" for="name">Medicine Name:</label>
-                            <input type="text" class="col-8 form-control" id="name" placeholder="ex. Anticonvulsant">
+                            <label class="col-4 col-form-label" for="name">Medicine Name<span style="color:red"> *</span></label>
+                            <input type="text" class="col-8 form-control" id="med-name" placeholder="ex. Anticonvulsant">
                         </div>
                         <div class="name-row form-group row">
-                            <label for="date1" class="col-4 col-form-label">Date:</label>
+                            <label for="date1" class="col-4 col-form-label">Date<span style="color:red"> *</span></label>
 <!--                            <input class="col-8" type="text" id="date1">-->
                             <input id="new-date1" class="col-8 form-control" type="date">
                         </div>
                     </form>
+                    <div class="no-select"><span style="color:red">*</span> <i>Required</i></div>
                 </div>
                 <div class="modal-footer">
+                    <span class="invalid-warning mr-auto no-select" style="display:none; color:red"></span>
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-secondary" id= "save1" data-dismiss="modal">Save</button>
+                    <button type="button" class="btn btn-secondary" id= "save1">Save</button>
+                </div>
+            </div>
+        </div>
+    </div>
+      
+    <div class="modal fade" id="editmedModal" tabindex="-1" role="dialog" aria-labelledby="newModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">Edit Medicine</h4>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="name-row form-group row">
+                            <label class="col-4 col-form-label" for="name">Medicine Name<span style="color:red"> *</span></label>
+                            <input type="text" class="col-8 form-control" id="edit-med-name" placeholder="ex. Anticonvulsant">
+                        </div>
+                        <div class="name-row form-group row">
+                            <label for="date1" class="col-4 col-form-label">Date<span style="color:red"> *</span></label>
+<!--                            <input class="col-8" type="text" id="date1">-->
+                            <input id="edit-new-date1" class="col-8 form-control" type="date">
+                        </div>
+                        <div class="no-select"><span style="color:red">*</span> <i>Required</i></div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <span class="invalid-warning mr-auto no-select" style="display:none; color:red"></span>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-secondary" id= "edit2" onclick="editMedClick('4')">Save</button>
                 </div>
             </div>
         </div>
@@ -107,36 +153,73 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h4 class="modal-title">Add Symptom</h4>
                     <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">Log Symptom</h4>
                 </div>
                 <div class="modal-body">
                     <form>
                         <div class="name-row form-group row">
-                            <label for="name" class="col-2 col-form-label">Name:</label>
-                            <input type="text" class="col-10 form-control" id="name" placeholder="ex. Shivering">
+                            <label for="name" class="col-3 col-form-label">Name<span style="color:red"> *</span></label>
+                            <input id="symp-name" type="text" class="col-9 form-control" id="name" placeholder="ex. Shivering">
                         </div>
                         <div class="name-row form-group row">
-                            <label for="date2" class="col-2 col-form-label">Date:</label>
+                            <label for="date2" class="col-3 col-form-label">Date<span style="color:red"> *</span></label>
 <!--                            <input type="text" id="date2">-->
-                            <input id="new-date2" class="col-10 form-control" type="date">
+                            <input id="new-date2" class="col-9 form-control" type="date">
                         </div>
+                        <div class="no-select"><span style="color:red">*</span> <i>Required</i></div>
                     </form>
                     
                 </div>
                 <div class="modal-footer">
+                    <span class="invalid-warning mr-auto no-select" style="display:none; color:red"></span>
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-secondary" id="save2" data-dismiss="modal">Save</button>
+                    <button type="button" class="btn btn-secondary" id="save2">Save</button>
+                </div>
+            </div>
+        </div>
+    </div>
+      
+    <div class="modal fade" id="editsympModal" tabindex="-1" role="dialog" aria-labelledby="newModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">Edit Symptom</h4>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="name-row form-group row">
+                            <label for="name" class="col-3 col-form-label">Name<span style="color:red"> *</span></label>
+                            <input type="text" class="col-9 form-control" id="edit-name" placeholder="ex. Shivering">
+                        </div>
+                        <div class="name-row form-group row">
+                            <label for="date2" class="col-3 col-form-label">Date<span style="color:red"> *</span></label>
+<!--                            <input type="text" id="date2">-->
+                            <input id="edit-new-date2" class="col-9 form-control" type="date">
+                        </div>
+                        <div class="no-select"><span style="color:red">*</span> <i>Required</i></div>
+                    </form>
+                    
+                </div>
+                <div class="modal-footer">
+                    <span class="invalid-warning mr-auto no-select" style="display:none; color:red"></span>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-secondary" id="edit1" onclick="editSympClick('4')">Save</button>
                 </div>
             </div>
         </div>
     </div>
       
     <div class="backdrop"></div>
-    <div class="fab child" data-subitem="1" id="addMed" data-toggle="modal" data-target="#medModal"><div id="add-medicine" class="fab-text">Add Medicine</div><i id="med-icon" class="fa fa-medkit fab-icon" aria-hidden="true"></i></div>
+    <div class="fab child" data-subitem="1" id="addMed" data-toggle="modal" data-target="#medModal"><div id="add-medicine" class="fab-text">Log Medicine</div><i id="med-icon" class="fa fa-medkit fab-icon" aria-hidden="true"></i></div>
     <div class="fab child" data-subitem="2" id="logSymp" data-toggle="modal" data-target="#sympModal"><div id="log-symptom" class="fab-text">Log Symptom</div><i id="steth-icon" class="fa fa-stethoscope fab-icon" aria-hidden="true"></i></div>
     <div class="fab" id="masterfab"><span id="plus-text" class="no-select">+</span><i id="undo-icon" class="fa fa-undo" aria-hidden="true"></i></div>
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script
+    src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"
+    integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU="
+    crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/less.js/3.8.1/less.min.js"></script>
